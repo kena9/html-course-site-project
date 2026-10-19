@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet Kenaket Edjeta, an Information Technology student at Kennesaw State University interested in cybersecurity and cloud infrastructure.">
+  <title>About Me | HTML: The Backbone of the Web</title>
+
+  <!-- The css for all pages. -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Keyboard users can jump past the repeated menu. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/code.png" width="40" height="40" alt="">
+        <span>HTML<small>The backbone of the web</small></span>
+      </a>
+
+      <!-- The same menu appears on every page. -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="modern.html">Modern HTML</a></li>
+          <li><a href="concepts.html">Key Concepts</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="about.html" aria-current="page">About Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" tabindex="-1">
+    <header class="page-heading">
+      <p class="eyebrow">05 &middot; About me &amp; the project</p>
+      <h1>A breif overview of the creator</h1>
+      <p class="lead">
+        An Information Technology student interested in cybersecurity
+        and cloud infrastructure.
+      </p>
+    </header>
+
+    <section class="section two-column" aria-labelledby="profile-title">
+      <div>
+        <p class="eyebrow">Student profile</p>
+
+        <h2 id="profile-title">Kenaket Edjeta</h2>
+        <p>
+          Hi, my name is Kenaket Edjeta, and I'm studying Information Technology
+          at Kennesaw State University. I'm interested in
+          cybersecurity and cloud infrastructure, and my long-term goal
+          is to become a Chief Technology Officer (CTO).
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Education and interests</caption>
+            <tbody>
+              <tr>
+                <th scope="row">School</th>
+                <td>Kennesaw State University</td>
+              </tr>
+              <tr>
+                <th scope="row">Major or program</th>
+                <td>Information Technology</td>
+              </tr>
+              <tr>
+                <th scope="row">Academic interests</th>
+                <td>Cybersecurity and cloud infrastructure</td>
+              </tr>
+              <tr>
+                <th scope="row">Career goal</th>
+                <td>Chief Technology Officer (CTO)</td>
+              </tr>
+              <tr>
+                <th scope="row">Relevant experience</th>
+                <td>
+                  Systems engineering at Children's Healthcare of Atlanta
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="panel" aria-labelledby="project-title">
+        <span class="icon-box">
+          <img src="images/code.png" width="36" height="36" alt="">
+        </span>
+
+        <h2 id="project-title">About this project</h2>
+        <p>
+          This educational site is a class project for IT 3203:
+          Web Development. Milestone 1 turns the Assignment 1 HTML
+          research presentation into a website.
+        </p>
+        <p>
+          The project shows HTML's evolution and its core concepts
+          through linked pages, code examples, and a historical timeline.
+        </p>
+        <p>
+          <a href="https://ksuweb.github.io/IT3203/">
+            Visit the class website &rarr;
+          </a>
+        </p>
+      </aside>
+    </section>
+
+    <section class="section two-column" aria-labelledby="skills-title">
+      <div>
+        <h2 id="skills-title">Skills practiced in this project</h2>
+        <ul>
+          <li>Organizing research into six linked HTML pages.</li>
+          <li>Using semantic headings, lists, images, and tables.</li>
+          <li>Styling pages with one shared CSS file.</li>
+          <li>Arranging content with Flexbox and Grid.</li>
+          <li>Adding keyboard focus styles and responsive layouts.</li>
+          <li>Documenting the implementation with code comments.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Learning reflection</h2>
+
+        <p>
+          Semantic HTML elements such as <code>&lt;nav&gt;</code> and
+          <code>&lt;main&gt;</code> give content a clear purpose and help
+          make the pages easier to navigate. CSS Grid organizes content into
+          a layout that can adapt to different screen sizes.
+        </p>
+
+        <h3>Next learning goal</h3>
+        <p>
+          My next goal is to study cloud engineering and continue on my
+          interests in making secure and reliable cloud infrastructure.
+        </p>
+      </div>
+    </section>
+
+    <nav class="page-next" aria-label="Page sequence">
+      <a href="references.html">&larr; References</a>
+      <a href="index.html">Home &rarr;</a>
+    </nav>
+  </main>
+
+  <!-- Class project course link. -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        This is a class project for
+        <a href="https://ksuweb.github.io/IT3203/">
+          IT 3203: Web Development
+        </a>.
+      </p>
+      <p>HTML research &middot; Milestone 1</p>
+    </div>
+  </footer>
+</body>
+</html>

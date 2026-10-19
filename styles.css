@@ -1,0 +1,599 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f6f2;
+  color: #203442;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3, p, figure {
+  margin-top: 0;
+}
+
+h1, h2, h3 {
+  color: #142c3c;
+  line-height: 1.15;
+}
+
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+h1 {
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+}
+
+a {
+  color: #a53818;
+  text-underline-offset: 0.2em;
+}
+
+/* Hover and keyboard-focus states make links easier to identify. */
+a:hover {
+  color: #173e47;
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #a53818;
+  outline-offset: 5px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+code, pre {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+code {
+  font-size: 0.95em;
+  overflow-wrap: anywhere;
+}
+
+pre {
+  margin: 0;
+  padding: 1.5rem;
+  overflow-x: auto;
+  color: #f6f3e9;
+  background: #142c3c;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+pre code {
+  overflow-wrap: normal;
+}
+
+figcaption {
+  padding-top: 0.75rem;
+  color: #53636c;
+  font-size: 0.85rem;
+}
+
+/* CLASS selectors style reusable parts, such as containers and buttons. */
+.container {
+  width: min(1100px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  background: #fffefa;
+  border-bottom: 1px solid #d6dcd9;
+}
+
+/* Flexbox keeps the brand and navigation aligned and allows wrapping. */
+.header-inner, .brand, .nav-list, .actions, .footer-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-inner {
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+.brand {
+  gap: 0.65rem;
+  color: #142c3c;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.brand img {
+  width: 40px;
+  padding: 8px;
+  background: #142c3c;
+  border-radius: 8px;
+}
+
+.brand small {
+  display: block;
+  color: #53636c;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-list {
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  color: #203442;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  background: #edf0ec;
+}
+
+.nav-list a[aria-current="page"] {
+  background: #142c3c;
+  color: #fff;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: #fff;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+/* Grid provides the main two-column layouts. */
+.hero, .two-column {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero {
+  padding-top: 4.5rem;
+  padding-bottom: 4rem;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+  color: #a53818;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.lead {
+  max-width: 65ch;
+  color: #4d606a;
+  font-size: 1.1rem;
+}
+
+.actions {
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid #a53818;
+  border-radius: 5px;
+  background: #a53818;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button:hover {
+  border-color: #142c3c;
+  background: #142c3c;
+  color: #fff;
+}
+
+.code-window {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #203442;
+  border-radius: 10px;
+  background: #142c3c;
+  box-shadow: 10px 10px 0 #e7e5dd;
+}
+
+.code-title {
+  margin: 0;
+  padding: 0.8rem 1.5rem;
+  border-bottom: 1px solid #3b515e;
+  color: #e8cbae;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.8rem;
+}
+
+.code-window figcaption {
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid #3b515e;
+  color: #c6d5d9;
+}
+
+.milestones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+  padding: 1.6rem 0;
+  border-top: 1px solid #cfd7d3;
+  border-bottom: 1px solid #cfd7d3;
+  list-style: none;
+}
+
+.milestones li {
+  margin: 0;
+  padding: 0 1rem;
+  border-right: 1px solid #cfd7d3;
+  color: #53636c;
+  font-size: 0.85rem;
+}
+
+.milestones li:last-child {
+  border-right: 0;
+}
+
+.milestones strong {
+  display: block;
+  color: #142c3c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+
+.section {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.section + .section {
+  border-top: 1px solid #d6dcd9;
+}
+
+.section-heading {
+  max-width: 65ch;
+  margin-bottom: 2rem;
+}
+
+.contents-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contents-list li {
+  margin: 0;
+  border-top: 1px solid #cfd7d3;
+}
+
+.contents-list a {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 0.8rem;
+  padding: 1.2rem 0.5rem;
+  color: #142c3c;
+  text-decoration: none;
+}
+
+.contents-list a:hover {
+  background: #eeede5;
+}
+
+.contents-list strong, .contents-list small {
+  display: block;
+}
+
+.contents-list small {
+  color: #53636c;
+  font-size: 0.85rem;
+}
+
+.number {
+  color: #a53818;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.8rem;
+}
+
+.term-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.term-list li {
+  margin: 0;
+}
+
+.term-list a {
+  display: block;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid #c5cec9;
+  border-radius: 4px;
+  background: #fffefa;
+  color: #203442;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.term-list a:hover {
+  background: #e6ede8;
+}
+
+.page-heading {
+  max-width: 850px;
+  padding-top: 3.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.page-heading h1 {
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+}
+
+.two-column {
+  align-items: start;
+}
+
+.portrait {
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.portrait img {
+  border: 1px solid #cfd7d3;
+  border-radius: 8px;
+}
+
+.note {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid #22615b;
+  background: #e9efea;
+}
+
+.note p:last-child, .panel p:last-child {
+  margin-bottom: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  border: 1px solid #cfd7d3;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fffefa;
+  text-align: left;
+}
+
+caption {
+  padding: 1rem;
+  background: #e9efea;
+  color: #142c3c;
+  font-weight: 700;
+  text-align: left;
+}
+
+th, td {
+  padding: 1rem;
+  border-bottom: 1px solid #d6dcd9;
+  vertical-align: top;
+}
+
+thead {
+  background: #142c3c;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background: #f0f2ed;
+}
+
+tbody tr:last-child th, tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.panel-grid, .concept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.panel, .concept {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid #cfd7d3;
+  border-radius: 6px;
+  background: #fffefa;
+}
+
+.icon-box {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  border-radius: 6px;
+  background: #142c3c;
+}
+
+.icon-box img {
+  width: 36px;
+  height: 36px;
+}
+
+.concept {
+  scroll-margin-top: 1rem;
+}
+
+.concept code, .example {
+  color: #87371e;
+}
+
+.concept .number {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+.source-note {
+  margin-top: 1.5rem;
+  color: #53636c;
+  font-size: 0.85rem;
+}
+
+.reference-list li {
+  margin-bottom: 1.5rem;
+  padding-left: 0.4rem;
+  overflow-wrap: anywhere;
+}
+
+.reference-list p {
+  margin: 0.3rem 0 0;
+  color: #53636c;
+}
+
+.page-next {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2.5rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid #cfd7d3;
+}
+
+.site-footer {
+  margin-top: 1.5rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid #cfd7d3;
+  background: #eeeee7;
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+/* ID selector: uniquely styles the homepage introduction. */
+#home-intro h1 span {
+  color: #a53818;
+}
+
+/* A single breakpoint stacks columns and keeps navigation visible on phones. */
+@media (max-width: 760px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+
+  .header-inner {
+    align-items: flex-start;
+  }
+
+  .header-inner nav {
+    width: 100%;
+  }
+
+  .nav-list {
+    gap: 0.15rem;
+  }
+
+  .nav-list a {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .hero, .two-column, .contents-list, .panel-grid, .concept-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero, .page-heading {
+    padding-top: 2.5rem;
+  }
+
+  .hero, .section {
+    padding-bottom: 2.5rem;
+  }
+
+  .milestones {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 0;
+  }
+
+  .milestones li:nth-child(2) {
+    border-right: 0;
+  }
+
+  .portrait {
+    margin-left: 0;
+  }
+
+  th, td {
+    padding: 0.7rem;
+  }
+}

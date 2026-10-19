@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Follow HTML from its origins at CERN through HTML5 and the Living Standard.">
+  <title>History | HTML: The Backbone of the Web</title>
+  <!-- All pages share this one css. -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Keyboard users can jump past the repeated menu. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/code.png" width="40" height="40" alt="">
+        <span>HTML<small>The backbone of the web</small></span>
+      </a>
+      <!-- Keep the same six menu links on every page. -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html" aria-current="page">History</a></li>
+            <li><a href="modern.html">Modern HTML</a></li>
+            <li><a href="concepts.html">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" tabindex="-1">
+    <header class="page-heading">
+      <p class="eyebrow">01 &middot; Topic one</p>
+      <h1>The evolution of HTML</h1>
+      <p class="lead">A small language for sharing scientific information became a common way to structure content across the web.</p>
+    </header>
+    <section class="section two-column" aria-labelledby="origins-title">
+      <div>
+        <span class="icon-box"><img src="images/history.png" width="36" height="36" alt=""></span>
+        <h2 id="origins-title">The beginning at CERN</h2>
+        <p>In 1989, Tim Berners-Lee proposed a system for connecting information at CERN. By the end of 1990, he had built a browser and web server. Early HTML documentation followed in 1991.</p>
+        <p>The central idea was hypertext: a document could contain links to other documents. Readers could follow those links instead of searching separately for every related resource.</p>
+        <p>Early HTML focused on recognizable document parts, including headings, paragraphs, and lists. As the web expanded, developers needed shared rules so pages could work in different browsers.</p>
+        <p><a href="https://home.cern/science/computing/the-birth-of-the-web">Read CERN's history of the web &rarr;</a></p>
+      </div>
+      <figure class="portrait">
+        <img src="images/tim-berners-lee.png" width="386" height="545" alt="Portrait of Tim Berners-Lee, inventor of the World Wide Web.">
+        <figcaption>Tim Berners-Lee. Image reused from slide 8 of the Assignment 1 presentation.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" aria-labelledby="timeline-title">
+      <p class="eyebrow">Major milestones</p>
+      <h2 id="timeline-title">From early tags to a shared standard</h2>
+      <p>Each stage responded to a growing web: more browsers, richer documents, and eventually web applications.</p>
+      <!-- This table compares historical data. -->
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable HTML history table">
+        <table>
+          <caption>Selected milestones in HTML's development</caption>
+          <thead>
+            <tr><th scope="col">Year</th><th scope="col">Milestone</th><th scope="col">Why it mattered</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1991</th><td>Early HTML documentation</td><td>Described elements for linked documents.</td></tr>
+            <tr><th scope="row">1995</th><td>HTML 2.0</td><td>RFC 1866 documented shared practice, including links and forms.</td></tr>
+            <tr><th scope="row">1997</th><td>HTML 3.2 and HTML 4.0</td><td>HTML 3.2 standardized common features such as tables. HTML 4 emphasized accessibility and separation of structure and presentation.</td></tr>
+            <tr><th scope="row">1999</th><td>HTML 4.01</td><td>Refined HTML 4.0 and became an important foundation for later work.</td></tr>
+            <tr><th scope="row">2000</th><td>XHTML 1.0</td><td>Reformulated HTML 4 using XML's stricter syntax.</td></tr>
+            <tr><th scope="row">2004</th><td>WHATWG formed</td><td>Apple, Mozilla, and Opera supported continued development of HTML for web applications.</td></tr>
+            <tr><th scope="row">2014</th><td>HTML5 Recommendation</td><td>W3C published the HTML5 Recommendation on October 28, including semantic elements and native media.</td></tr>
+            <tr><th scope="row">2019</th><td>W3C&ndash;WHATWG agreement</td><td>The organizations agreed to collaborate on a single development stream for HTML and the DOM.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="source-note">Adapted from Assignment 1, slides 8&ndash;16 and 35. Dates and milestones checked against <a href="references.html#history-sources">CERN, RFC 1866, and W3C records</a>.</p>
+    </section>
+
+    <section class="section two-column" aria-labelledby="lessons-title">
+      <div>
+        <h2 id="lessons-title">What changed along the way?</h2>
+        <ul>
+          <li><strong>Shared rules:</strong> standards helped browser makers interpret the same markup consistently.</li>
+          <li><strong>Separate styles:</strong> HTML described content while CSS handled its presentation.</li>
+          <li><strong>Richer pages:</strong> HTML5 added meaningful sections and native audio and video elements.</li>
+          <li><strong>Continuous updates:</strong> the Living Standard replaced the need to wait for another major version number.</li>
+        </ul>
+      </div>
+      <aside class="note" aria-labelledby="xhtml-title">
+        <h3 id="xhtml-title">A note about XHTML</h3>
+        <p>XHTML uses XML rules, including properly nested elements and quoted attribute values. Fatal XML parsing errors can prevent an XML document from displaying normally. Browser error handling also depends on whether a document is served as XML or as HTML.</p>
+        <p><a href="https://www.w3.org/TR/xhtml1/">XHTML 1.0 specification</a></p>
+      </aside>
+    </section>
+    <nav class="page-next" aria-label="Page sequence">
+      <a href="index.html">&larr; Home</a>
+      <a href="modern.html">Modern HTML &rarr;</a>
+    </nav>
+  </main>
+
+  <!-- Required class website link appear on every page. -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203: Web Development</a>.</p>
+      <p>HTML research &middot; Milestone 1</p>
+    </div>
+  </footer>
+</body>
+</html>

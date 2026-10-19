@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about the HTML Living Standard, document structure, semantics, forms, and media.">
+  <title>Modern HTML | HTML: The Backbone of the Web</title>
+  <!-- All pages share this one css. -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Keyboard users can jump past the repeated menu. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/code.png" width="40" height="40" alt="">
+        <span>HTML<small>The backbone of the web</small></span>
+      </a>
+      <!-- Keep the same six menu links on every page. -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="modern.html" aria-current="page">Modern HTML</a></li>
+            <li><a href="concepts.html">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" tabindex="-1">
+    <header class="page-heading">
+      <p class="eyebrow">02 &middot; Topic two</p>
+      <h1>HTML in the modern web</h1>
+      <p class="lead">Modern HTML mixes meaningful document structure with native browser features. Its development continues with the HTML Living Standard.</p>
+    </header>
+    <section class="section two-column" aria-labelledby="living-title">
+      <div>
+        <h2 id="living-title">One language, continuous development</h2>
+        <p>The WHATWG maintains the HTML Living Standard. Its text changes as contributors resolve issues, refine browser behavior, and develop features. Compatibility with existing pages is a central design concern.</p>
+        <p>The 2019 agreement between W3C and WHATWG established a shared approach to HTML and DOM development. The term <em>HTML5</em> remains useful when talking about the 2014 milestone, while the Living Standard describes the evolving language.</p>
+        <p><a href="https://html.spec.whatwg.org/multipage/">Visit the HTML Living Standard &rarr;</a></p>
+      </div>
+      <aside class="note" aria-labelledby="roles-title">
+        <h3 id="roles-title">How the web languages work together</h3>
+        <ul>
+          <li><strong>HTML:</strong> identifies the content and its meaning.</li>
+          <li><strong>CSS:</strong> sets colors, typography, spacing, and layout.</li>
+          <li><strong>JavaScript:</strong> can respond to actions and change the document.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section two-column" aria-labelledby="anatomy-title">
+      <div>
+        <p class="eyebrow">Document anatomy</p>
+        <h2 id="anatomy-title">A structure the browser can understand</h2>
+        <p>A page has a <code>&lt;head&gt;</code> for metadata and a <code>&lt;body&gt;</code> for its content. A meaningful structure helps both readers and software interpret the page.</p>
+        <ol>
+          <li><code>&lt;!DOCTYPE html&gt;</code> requests modern standards mode.</li>
+          <li><code>&lt;html lang="en"&gt;</code> identifies the document's main language.</li>
+          <li><code>&lt;head&gt;</code> contains the page title, character encoding, and stylesheet link.</li>
+          <li><code>&lt;body&gt;</code> contains headings, text, images, and page sections.</li>
+        </ol>
+      </div>
+      <figure class="code-window">
+        <p class="code-title">document-structure.html</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;My HTML page&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;Site introduction&lt;/header&gt;
+    &lt;nav&gt;Main navigation&lt;/nav&gt;
+    &lt;main&gt;
+      &lt;h1&gt;My main heading&lt;/h1&gt;
+      &lt;p&gt;My page content.&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;Project information&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <figcaption>A simplified document skeleton, adapted from Assignment 1, slide 18.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" aria-labelledby="features-title">
+      <div class="section-heading">
+        <p class="eyebrow">Features and meaning</p>
+        <h2 id="features-title">What modern HTML makes possible</h2>
+      </div>
+      <div class="panel-grid">
+        <article class="panel">
+          <h3>Semantic page regions</h3>
+          <p>Elements such as <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;article&gt;</code> describe content roles. Choose an element for its meaning, then use CSS to control how it looks.</p>
+        </article>
+        <article class="panel">
+          <h3>Native multimedia</h3>
+          <p>The <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> elements support media playback in the browser. Video captions and text alternatives help make media accessible.</p>
+        </article>
+        <article class="panel">
+          <h3>More useful forms</h3>
+          <p>Input types such as <code>email</code>, <code>date</code>, and <code>number</code> give browsers information about expected values. Labels explain the purpose of each field.</p>
+        </article>
+        <article class="panel">
+          <h3>Native interactions</h3>
+          <p>Features such as the Popover API can support basic show-and-hide interactions through HTML attributes. Browser support and accessibility still need checking for the feature and intended use.</p>
+        </article>
+      </div>
+      <aside class="note" aria-labelledby="platform-title">
+        <h3 id="platform-title">HTML belongs to a larger platform</h3>
+        <p>The research also covers browser storage, Service Workers, and Web Components. These involve web APIs and often JavaScript. They extend what web applications can do, while HTML continues to describe the content.</p>
+      </aside>
+      <p class="source-note">Primary content: Assignment 1, slides 16 and 18&ndash;25. Supporting links: <a href="references.html#modern-sources">WHATWG, W3C, and MDN documentation</a>.</p>
+    </section>
+    <nav class="page-next" aria-label="Page sequence">
+      <a href="history.html">&larr; History</a>
+      <a href="concepts.html">Key Concepts &rarr;</a>
+    </nav>
+  </main>
+
+  <!-- Required class website link appear on every page. -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203: Web Development</a>.</p>
+      <p>HTML research &middot; Milestone 1</p>
+    </div>
+  </footer>
+</body>
+</html>

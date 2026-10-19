@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Seven HTML concepts explained with definitions and code examples.">
+  <title>Key Concepts | HTML: The Backbone of the Web</title>
+  <!-- All pages share this one css. -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Keyboard users can jump past the repeated menu. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/code.png" width="40" height="40" alt="">
+        <span>HTML<small>The backbone of the web</small></span>
+      </a>
+      <!-- Keep the same six menu links on every page. -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="modern.html">Modern HTML</a></li>
+            <li><a href="concepts.html" aria-current="page">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" tabindex="-1">
+    <header class="page-heading">
+      <p class="eyebrow">03 &middot; Key concepts</p>
+      <h1>Seven ideas behind every page</h1>
+      <p class="lead">These concepts connect HTML's history to the markups. Each definition includes a small example.</p>
+    </header>
+    <!-- These links aim unique section IDs, so each term can be linked directly. -->
+    <nav aria-label="Jump to a concept">
+      <ul class="term-list">
+        <li><a href="#markup">Markup language</a></li>
+        <li><a href="#elements">Elements and tags</a></li>
+        <li><a href="#attributes">Attributes</a></li>
+        <li><a href="#hyperlinks">Hyperlinks</a></li>
+        <li><a href="#dom">Document Object Model (DOM)</a></li>
+        <li><a href="#semantics">Semantic HTML</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+      </ul>
+    </nav>
+    <section class="section" aria-labelledby="definitions-title">
+      <h2 id="definitions-title">Definitions and examples</h2>
+      <div class="concept-grid">
+        <article class="concept" id="markup">
+          <span class="number">CONCEPT 01</span>
+          <h3>Markup language</h3>
+          <p>A markup language describes the structure and meaning of content. HTML marks text as a heading, paragraph, list item, or another document part.</p>
+          <p class="example"><code>&lt;h1&gt;HTML history&lt;/h1&gt;</code></p>
+          <p>This marks the text as a top-level heading.</p>
+        </article>
+        <article class="concept" id="elements">
+          <span class="number">CONCEPT 02</span>
+          <h3>Elements and tags</h3>
+          <p>An element is a building block of a page. Many elements have a start tag, content, and an end tag. Void elements, such as <code>&lt;img&gt;</code>, do not have an end tag.</p>
+          <p class="example"><code>&lt;p&gt;A short paragraph.&lt;/p&gt;</code></p>
+          <p>The complete paragraph is an element; <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> are its tags.</p>
+        </article>
+        <article class="concept" id="attributes">
+          <span class="number">CONCEPT 03</span>
+          <h3>Attributes</h3>
+          <p>Attributes provide extra information in a start tag. For example, <code>href</code> sets a link destination and <code>lang</code> identifies a language.</p>
+          <p class="example"><code>&lt;html lang=&quot;en&quot;&gt;</code></p>
+          <p>Here, <code>lang</code> is the attribute name and <code>en</code> is its value.</p>
+        </article>
+        <article class="concept" id="hyperlinks">
+          <span class="number">CONCEPT 04</span>
+          <h3>Hyperlinks</h3>
+          <p>A hyperlink connects a page to another resource or to a location within a page. The anchor element makes the connection, and descriptive link text tells readers where it leads.</p>
+          <p class="example"><code>&lt;a href=&quot;history.html&quot;&gt;HTML history&lt;/a&gt;</code></p>
+          <p>This relative link opens another page in the same folder.</p>
+        </article>
+        <article class="concept" id="dom">
+          <span class="number">CONCEPT 05</span>
+          <h3>Document Object Model (DOM)</h3>
+          <p>The DOM represents a document as a tree of objects. The browser builds this tree from the markup. JavaScript can use the DOM to read or change page content.</p>
+          <p class="example"><code>&lt;main&gt;&lt;p&gt;Hello!&lt;/p&gt;&lt;/main&gt;</code></p>
+          <p>The paragraph is a child of the main element in the document tree.</p>
+        </article>
+        <article class="concept" id="semantics">
+          <span class="number">CONCEPT 06</span>
+          <h3>Semantic HTML</h3>
+          <p>Semantic elements communicate the purpose of content. A <code>&lt;nav&gt;</code> contains navigation links, while <code>&lt;main&gt;</code> identifies the page's main content.</p>
+          <p class="example"><code>&lt;nav aria-label=&quot;Main navigation&quot;&gt;...&lt;/nav&gt;</code></p>
+          <p>The element names the region; the label distinguishes its purpose.</p>
+        </article>
+        <article class="concept" id="accessibility">
+          <span class="number">CONCEPT 07</span>
+          <h3>Accessibility</h3>
+          <p>Accessible pages help people use content with different abilities and tools. Meaningful headings, keyboard access, descriptive links, and appropriate image alternatives all contribute.</p>
+          <p class="example"><code>&lt;img src=&quot;photo.jpg&quot; alt=&quot;A web server at CERN&quot;&gt;</code></p>
+          <p>Alternative text describes an informative image. Decorative images use an empty <code>alt=""</code> attribute. This snippet is illustrative.</p>
+        </article>
+      </div>
+      <p class="source-note">Adapted from Assignment 1, slides 5 and 18&ndash;19. Further explanation: <a href="references.html#learning-resources">MDN's HTML, semantics, and DOM guides</a>.</p>
+    </section>
+    <aside class="note" aria-labelledby="practice-title">
+      <h2 id="practice-title">Try reading the page source</h2>
+      <p>Use your browser's <em>View page source</em> command. Find the main heading, navigation, and stylesheet link. These are examples of the same concepts explained here.</p>
+    </aside>
+    <nav class="page-next" aria-label="Page sequence">
+      <a href="modern.html">&larr; Modern HTML</a>
+      <a href="references.html">References &rarr;</a>
+    </nav>
+  </main>
+
+  <!-- Required class website link appear on every page. -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203: Web Development</a>.</p>
+      <p>HTML research &middot; Milestone 1</p>
+    </div>
+  </footer>
+</body>
+</html>
