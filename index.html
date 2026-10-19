@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An educational guide to HTML, its history, modern features, and seven key concepts.">
+  <title>Home | HTML: The Backbone of the Web</title>
+  <!-- All pages share this one stylesheet. Relative paths work locally and online. -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Keyboard users can jump past the repeated menu. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/code.png" width="40" height="40" alt="">
+        <span>HTML<small>The backbone of the web</small></span>
+      </a>
+      <!-- Keep the same six menu links on every page. aria-current marks this page. -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="modern.html">Modern HTML</a></li>
+            <li><a href="concepts.html">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" tabindex="-1">
+    <!-- The hero introduces the research and displays an escaped HTML example. -->
+    <section id="home-intro" class="hero" aria-labelledby="home-title">
+      <div>
+        <p class="eyebrow">IT 3203 &middot; A guide to HTML</p>
+        <h1 id="home-title">The backbone<br>of <span>the web.</span></h1>
+        <p class="lead">HTML gives web content its structure and meaning. Explore how it grew from linked research documents into the foundation of modern websites.</p>
+        <div class="actions">
+          <a class="button" href="history.html">Explore the history &rarr;</a>
+          <a href="concepts.html">Learn the key concepts</a>
+        </div>
+      </div>
+      <figure class="code-window">
+        <p class="code-title">a-first-page.html</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;My first page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, web.&lt;/h1&gt;
+    &lt;p&gt;Every page starts
+       with a little structure.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <figcaption>A heading, a paragraph, and a document to hold them.</figcaption>
+      </figure>
+    </section>
+
+    <!-- An ordered list highlights a few milestones; the History page explains them. -->
+    <ol class="milestones" aria-label="Selected HTML milestones">
+      <li><strong>1991</strong>Early HTML documentation</li>
+      <li><strong>1995</strong>HTML 2.0 standard</li>
+      <li><strong>2014</strong>HTML5 Recommendation</li>
+      <li><strong>Today</strong>HTML Living Standard</li>
+    </ol>
+
+    <section class="section" aria-labelledby="overview-title">
+      <div class="two-column">
+        <div>
+          <p class="eyebrow">Research overview</p>
+          <h2 id="overview-title">A language built to connect information</h2>
+          <p><strong>HyperText Markup Language (HTML)</strong> uses elements to identify headings, paragraphs, links, images, and other content. Browsers interpret this markup to build a web page.</p>
+          <p>This website adapts my Assignment 1 research into a beginner's guide. It follows HTML's history, explains modern document structure, and introduces concepts that help make websites understandable and accessible.</p>
+          <p>HTML supplies structure, CSS controls appearance, and JavaScript can add behavior. This project demonstrates the first two.</p>
+        </div>
+        <aside class="panel" aria-labelledby="terms-title">
+          <span class="icon-box"><img src="images/structure.png" width="36" height="36" alt="" loading="lazy"></span>
+          <h2 id="terms-title">Key terms</h2>
+          <p>Start with these seven ideas. Each link opens an explanation and example.</p>
+          <ul class="term-list">
+            <li><a href="concepts.html#markup">Markup</a></li>
+            <li><a href="concepts.html#elements">Elements</a></li>
+            <li><a href="concepts.html#attributes">Attributes</a></li>
+            <li><a href="concepts.html#hyperlinks">Hyperlinks</a></li>
+            <li><a href="concepts.html#dom">DOM</a></li>
+            <li><a href="concepts.html#semantics">Semantics</a></li>
+            <li><a href="concepts.html#accessibility">Accessibility</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="contents-title">
+      <div class="section-heading">
+        <p class="eyebrow">Table of contents</p>
+        <h2 id="contents-title">Explore the research</h2>
+        <p>Read the two topics in order, or jump to a concept or resource.</p>
+      </div>
+      <ol class="contents-list">
+        <li><a href="history.html"><span class="number">01</span><span><strong>History &amp; evolution</strong><small>CERN, early standards, XHTML, and HTML5</small></span><span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="modern.html"><span class="number">02</span><span><strong>Modern HTML</strong><small>Document structure and the Living Standard</small></span><span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="concepts.html"><span class="number">03</span><span><strong>Key concepts</strong><small>Seven ideas with short code examples</small></span><span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="references.html"><span class="number">04</span><span><strong>References &amp; resources</strong><small>Research sources and places to keep learning</small></span><span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="about.html"><span class="number">05</span><span><strong>About me &amp; this project</strong><small>Student profile and project purpose</small></span><span aria-hidden="true">&rarr;</span></a></li>
+      </ol>
+      <p class="source-note">Primary content: Assignment 1 presentation, slides 3, 5, 18&ndash;19, and 35. See <a href="references.html#assignment">the source note</a>.</p>
+    </section>
+  </main>
+
+  <!-- Required course disclosure and class website link appear on every page. -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203: Web Development</a>.</p>
+      <p>HTML research &middot; Milestone 1</p>
+    </div>
+  </footer>
+</body>
+</html>
