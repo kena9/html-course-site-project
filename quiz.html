@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A ten-question timed quiz that checks what you learned about HTML and its history.">
+  <title>Quiz | HTML: The Backbone of the Web</title>
+  <!-- All pages share this one css. The quiz styles are at the end of the file. -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Keyboard users can jump past the repeated menu. -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/code.png" width="40" height="40" alt="">
+        <span>HTML<small>The backbone of the web</small></span>
+      </a>
+      <!-- Keep the same seven menu links on every page. -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="modern.html">Modern HTML</a></li>
+            <li><a href="concepts.html">Key Concepts</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="quiz.html" aria-current="page">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" tabindex="-1">
+    <header class="page-heading">
+      <p class="eyebrow">06 &middot; Self-assessment</p>
+      <h1>Test what you learned</h1>
+      <p class="lead">Ten questions drawn from the pages you just read. Take your time with each one, then submit to see your score.</p>
+    </header>
+
+    <noscript>
+      <p class="note">This quiz needs JavaScript. Please turn it on in your browser and reload the page.</p>
+    </noscript>
+
+    <!-- Step 1: the rules and the Start button. quiz.js hides this panel once the quiz begins. -->
+    <div id="quiz-start">
+      <ul class="quiz-facts" aria-label="Quiz rules">
+        <li><strong>10 questions</strong>3 fill-in, 5 multiple choice, 2 select-all</li>
+        <li><strong>10 minutes</strong>The timer starts when you press Start</li>
+        <li><strong>7 to pass</strong>A score of 70% or higher</li>
+      </ul>
+      <section class="quiz-intro" aria-labelledby="how-title">
+        <div>
+          <h2 id="how-title">Before you begin</h2>
+          <ul>
+            <li>Fill-in answers are not case-sensitive.</li>
+            <li>Select-all questions are correct only when every right box is checked and no wrong ones are.</li>
+            <li>Unanswered questions count as incorrect.</li>
+            <li>If time runs out, your answers are submitted automatically.</li>
+          </ul>
+          <div class="actions">
+            <button type="button" class="button" id="start-button">Start the quiz &rarr;</button>
+            <a href="concepts.html">Review the key concepts first</a>
+          </div>
+        </div>
+        <aside class="note" aria-labelledby="tip-title">
+          <h3 id="tip-title">Want a refresher?</h3>
+          <p>Every question comes from the History, Modern HTML, Key Concepts, or References pages. After you submit, each wrong answer links back to the page that covers it.</p>
+        </aside>
+      </section>
+    </div>
+
+    <!-- Step 3: the results. This panel appears above the questions after you submit. -->
+    <section class="result-summary" id="results" aria-labelledby="result-title" tabindex="-1" hidden>
+      <h2 class="visually-hidden" id="result-title">Your results</h2>
+      <div class="result-top">
+        <span class="badge" id="result-badge"></span>
+        <p class="score"><span id="result-score"></span><small> / 10</small></p>
+        <p class="result-message"><strong id="result-percent"></strong> <span id="result-message"></span></p>
+      </div>
+      <dl class="result-stats">
+        <div><dt>Time spent</dt><dd id="result-time"></dd></div>
+        <div><dt>Time allowed</dt><dd>10:00</dd></div>
+        <div><dt>Correct</dt><dd id="result-correct"></dd></div>
+        <div><dt>Incorrect</dt><dd id="result-incorrect"></dd></div>
+      </dl>
+      <p class="chip-label">Jump to a question:</p>
+      <ul class="score-chips" id="result-chips"></ul>
+      <div class="actions">
+        <button type="button" class="button" id="retake-top">Retake quiz</button>
+        <a href="history.html">Review the History page</a>
+      </div>
+    </section>
+
+    <!-- Step 2: the timer bar and the questions. Hidden until Start is pressed. -->
+    <div class="quiz-bar" id="quiz-bar" role="group" aria-label="Quiz status" hidden>
+      <div class="quiz-timer">
+        <span class="quiz-label">Time left</span>
+        <span class="timer-value" id="timer" role="timer">10:00</span>
+      </div>
+      <div class="quiz-progress">
+        <span class="quiz-label" id="progress-label">0 of 10 answered</span>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+      <div class="quiz-pass">
+        <span class="quiz-label">To pass</span>
+        <strong>7 / 10</strong>
+      </div>
+    </div>
+
+    <form class="quiz-form" id="quiz-form" novalidate hidden>
+      <!-- Question 1: fill in the blank. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q1-card" data-type="fib" data-answer="CERN" data-review="history.html" data-review-label="History">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 01 / 10</span>
+            <span class="q-type">Fill in the blank</span>
+          </span>
+          <span class="q-text">In 1989, Tim Berners-Lee proposed a system for connecting information at ______.</span>
+        </legend>
+        <label class="blank-label" for="q1">Your answer</label>
+        <input type="text" id="q1" name="q1" autocomplete="off" spellcheck="false" placeholder="Type your answer">
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 2: multiple choice, one answer. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q2-card" data-type="mc" data-answer="B" data-review="history.html" data-review-label="History">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 02 / 10</span>
+            <span class="q-type">Multiple choice</span>
+          </span>
+          <span class="q-text">What was the central idea behind early HTML?</span>
+        </legend>
+        <ul class="choices">
+          <li>
+            <label class="choice">
+              <input type="radio" name="q2" value="A">
+              <span class="choice-key">A</span>
+              <span class="choice-text">Animated graphics inside web pages</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q2" value="B">
+              <span class="choice-key">B</span>
+              <span class="choice-text">Hypertext: documents that contain links to other documents</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q2" value="C">
+              <span class="choice-key">C</span>
+              <span class="choice-text">Storing every page in a database</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q2" value="D">
+              <span class="choice-key">D</span>
+              <span class="choice-text">Styling pages with a separate CSS file</span>
+            </label>
+          </li>
+        </ul>
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 3: multiple choice, one answer. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q3-card" data-type="mc" data-answer="C" data-review="history.html" data-review-label="History">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 03 / 10</span>
+            <span class="q-type">Multiple choice</span>
+          </span>
+          <span class="q-text">What did XHTML 1.0, published in 2000, do?</span>
+        </legend>
+        <ul class="choices">
+          <li>
+            <label class="choice">
+              <input type="radio" name="q3" value="A">
+              <span class="choice-key">A</span>
+              <span class="choice-text">Added native audio and video elements</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q3" value="B">
+              <span class="choice-key">B</span>
+              <span class="choice-text">Created the WHATWG</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q3" value="C">
+              <span class="choice-key">C</span>
+              <span class="choice-text">Reformulated HTML 4 using XML's stricter syntax</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q3" value="D">
+              <span class="choice-key">D</span>
+              <span class="choice-text">Replaced HTML with a programming language</span>
+            </label>
+          </li>
+        </ul>
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 4: fill in the blank. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q4-card" data-type="fib" data-answer="Living" data-review="modern.html" data-review-label="Modern HTML">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 04 / 10</span>
+            <span class="q-type">Fill in the blank</span>
+          </span>
+          <span class="q-text">The WHATWG maintains the HTML ______ Standard, which is updated continuously.</span>
+        </legend>
+        <label class="blank-label" for="q4">Your answer</label>
+        <input type="text" id="q4" name="q4" autocomplete="off" spellcheck="false" placeholder="Type your answer">
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 5: multiple choice, one answer. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q5-card" data-type="mc" data-answer="A" data-review="modern.html" data-review-label="Modern HTML">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 05 / 10</span>
+            <span class="q-type">Multiple choice</span>
+          </span>
+          <span class="q-text">What does <code>&lt;!DOCTYPE html&gt;</code> do?</span>
+        </legend>
+        <ul class="choices">
+          <li>
+            <label class="choice">
+              <input type="radio" name="q5" value="A">
+              <span class="choice-key">A</span>
+              <span class="choice-text">Requests modern standards mode</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q5" value="B">
+              <span class="choice-key">B</span>
+              <span class="choice-text">Identifies the document's main language</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q5" value="C">
+              <span class="choice-key">C</span>
+              <span class="choice-text">Holds the page title and stylesheet link</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q5" value="D">
+              <span class="choice-key">D</span>
+              <span class="choice-text">Marks the main content of the page</span>
+            </label>
+          </li>
+        </ul>
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 6: select all that apply. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q6-card" data-type="multi" data-answer="BCE" data-review="modern.html" data-review-label="Modern HTML">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 06 / 10</span>
+            <span class="q-type is-multi">Select all that apply</span>
+          </span>
+          <span class="q-text">Which of these jobs does CSS handle?</span>
+        </legend>
+        <ul class="choices">
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q6" value="A">
+              <span class="choice-key">A</span>
+              <span class="choice-text">Marking text as a heading</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q6" value="B">
+              <span class="choice-key">B</span>
+              <span class="choice-text">Setting colors</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q6" value="C">
+              <span class="choice-key">C</span>
+              <span class="choice-text">Choosing fonts (typography)</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q6" value="D">
+              <span class="choice-key">D</span>
+              <span class="choice-text">Responding when a user clicks a button</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q6" value="E">
+              <span class="choice-key">E</span>
+              <span class="choice-text">Controlling spacing and layout</span>
+            </label>
+          </li>
+        </ul>
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 7: fill in the blank. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q7-card" data-type="fib" data-answer="href" data-review="concepts.html#attributes" data-review-label="Key Concepts">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 07 / 10</span>
+            <span class="q-type">Fill in the blank</span>
+          </span>
+          <span class="q-text">The ______ attribute sets a link's destination.</span>
+        </legend>
+        <label class="blank-label" for="q7">Your answer</label>
+        <input type="text" id="q7" name="q7" autocomplete="off" spellcheck="false" placeholder="Type your answer">
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 8: multiple choice, one answer. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q8-card" data-type="mc" data-answer="D" data-review="concepts.html#dom" data-review-label="Key Concepts">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 08 / 10</span>
+            <span class="q-type">Multiple choice</span>
+          </span>
+          <span class="q-text">What is the Document Object Model (DOM)?</span>
+        </legend>
+        <ul class="choices">
+          <li>
+            <label class="choice">
+              <input type="radio" name="q8" value="A">
+              <span class="choice-key">A</span>
+              <span class="choice-text">A list of every website on the internet</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q8" value="B">
+              <span class="choice-key">B</span>
+              <span class="choice-text">A CSS file that styles the whole page</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q8" value="C">
+              <span class="choice-key">C</span>
+              <span class="choice-text">A tool that checks markup for errors</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q8" value="D">
+              <span class="choice-key">D</span>
+              <span class="choice-text">A tree of objects the browser builds from the markup</span>
+            </label>
+          </li>
+        </ul>
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 9: select all that apply. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q9-card" data-type="multi" data-answer="ACE" data-review="concepts.html#accessibility" data-review-label="Key Concepts">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 09 / 10</span>
+            <span class="q-type is-multi">Select all that apply</span>
+          </span>
+          <span class="q-text">Which practices help make a page accessible?</span>
+        </legend>
+        <ul class="choices">
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q9" value="A">
+              <span class="choice-key">A</span>
+              <span class="choice-text">Meaningful headings</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q9" value="B">
+              <span class="choice-key">B</span>
+              <span class="choice-text">Link text that only says &ldquo;click here&rdquo;</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q9" value="C">
+              <span class="choice-key">C</span>
+              <span class="choice-text">Keyboard access</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q9" value="D">
+              <span class="choice-key">D</span>
+              <span class="choice-text">Skipping headings to save space</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="checkbox" name="q9" value="E">
+              <span class="choice-key">E</span>
+              <span class="choice-text">Text alternatives (<code>alt</code>) for informative images</span>
+            </label>
+          </li>
+        </ul>
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Question 10: multiple choice, one answer. data-answer holds the correct answer. -->
+      <fieldset class="question" id="q10-card" data-type="mc" data-answer="B" data-review="references.html#learning-resources" data-review-label="References">
+        <legend>
+          <span class="q-head">
+            <span class="number">QUESTION 10 / 10</span>
+            <span class="q-type">Multiple choice</span>
+          </span>
+          <span class="q-text">Which resource on the References page checks an HTML file's markup?</span>
+        </legend>
+        <ul class="choices">
+          <li>
+            <label class="choice">
+              <input type="radio" name="q10" value="A">
+              <span class="choice-key">A</span>
+              <span class="choice-text">W3C CSS Validation Service</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q10" value="B">
+              <span class="choice-key">B</span>
+              <span class="choice-text">W3C Nu HTML Checker</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q10" value="C">
+              <span class="choice-key">C</span>
+              <span class="choice-text">MDN: Popover API</span>
+            </label>
+          </li>
+          <li>
+            <label class="choice">
+              <input type="radio" name="q10" value="D">
+              <span class="choice-key">D</span>
+              <span class="choice-text">CERN: The birth of the Web</span>
+            </label>
+          </li>
+        </ul>
+        <!-- quiz.js fills this box after the quiz is submitted. -->
+        <div class="feedback" hidden></div>
+      </fieldset>
+
+      <!-- Buttons shown while taking the quiz. -->
+      <div class="quiz-actions" id="quiz-actions">
+        <button type="submit" class="button">Submit quiz</button>
+        <button type="reset" class="button button-secondary">Reset answers</button>
+        <p class="action-note" id="action-note">0 of 10 answered. Unanswered questions count as incorrect.</p>
+      </div>
+
+      <!-- Buttons shown after submitting. -->
+      <div class="quiz-actions" id="result-actions" hidden>
+        <button type="button" class="button" id="retake-bottom">Retake quiz</button>
+        <a href="#results">Back to my score &uarr;</a>
+      </div>
+    </form>
+
+    <nav class="page-next" aria-label="Page sequence">
+      <a href="about.html">&larr; About Me</a>
+      <a href="index.html">Home &rarr;</a>
+    </nav>
+  </main>
+
+  <!-- Required class website link appear on every page. -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203: Web Development</a>.</p>
+      <p>HTML research &middot; Milestone 2</p>
+    </div>
+  </footer>
+
+  <!-- The quiz logic lives in one small script file. -->
+  <script src="quiz.js"></script>
+</body>
+</html>
