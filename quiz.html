@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A ten-question timed quiz that checks what you learned about HTML and its history.">
   <title>Quiz | HTML: The Backbone of the Web</title>
-  <!-- All pages share this one css. The quiz styles are at the end of the file. -->
+  <!-- All pages share this css. -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -44,7 +44,7 @@
       <p class="note">This quiz needs JavaScript. Please turn it on in your browser and reload the page.</p>
     </noscript>
 
-    <!-- Step 1: the rules and the Start button. quiz.js hides this panel once the quiz begins. -->
+    <!-- the rules and the Start button. quiz.js hides the panel once the quiz begins. -->
     <div id="quiz-start">
       <ul class="quiz-facts" aria-label="Quiz rules">
         <li><strong>10 questions</strong>3 fill-in, 5 multiple choice, 2 select-all</li>
@@ -72,7 +72,7 @@
       </section>
     </div>
 
-    <!-- Step 3: the results. This panel appears above the questions after you submit. -->
+    <!-- the results. This panel appears above the questions after you submit. -->
     <section class="result-summary" id="results" aria-labelledby="result-title" tabindex="-1" hidden>
       <h2 class="visually-hidden" id="result-title">Your results</h2>
       <div class="result-top">
@@ -94,7 +94,7 @@
       </div>
     </section>
 
-    <!-- Step 2: the timer bar and the questions. Hidden until Start is pressed. -->
+    <!-- the timer bar and the questions. Hidden until Start is pressed. -->
     <div class="quiz-bar" id="quiz-bar" role="group" aria-label="Quiz status" hidden>
       <div class="quiz-timer">
         <span class="quiz-label">Time left</span>
