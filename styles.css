@@ -597,3 +597,663 @@ tbody tr:last-child th, tbody tr:last-child td {
     padding: 0.7rem;
   }
 }
+
+/* ==========================================================
+   QUIZ PAGE STYLES (Milestone 2)
+   Used by quiz.html. These rules are added at the END of this file so
+   every page still shares one stylesheet. They reuse the site's colors,
+   fonts, and spacing: navy #142c3c, rust #a53818, teal #22615b.
+   ========================================================== */
+
+/* quiz.js shows and hides parts of the page with the hidden attribute.
+   This rule makes sure hidden always wins, even on grid and flex elements. */
+[hidden] {
+  display: none !important;
+}
+
+/* Hides text visually but keeps it available to screen readers. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Start panel: rules and the Start button ---------- */
+.quiz-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 0 2rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid #cfd7d3;
+  border-bottom: 1px solid #cfd7d3;
+  list-style: none;
+}
+
+.quiz-facts li {
+  margin: 0;
+  padding: 0 1.25rem;
+  border-right: 1px solid #cfd7d3;
+  color: #53636c;
+  font-size: 0.85rem;
+}
+
+.quiz-facts li:first-child {
+  padding-left: 0;
+}
+
+.quiz-facts li:last-child {
+  border-right: 0;
+}
+
+.quiz-facts strong {
+  display: block;
+  color: #142c3c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+
+.quiz-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding-bottom: 3.5rem;
+}
+
+.quiz-intro ul {
+  margin-top: 0;
+}
+
+.quiz-intro .note {
+  margin-top: 0;
+}
+
+/* ---------- Sticky status bar: timer, progress, pass mark ---------- */
+.quiz-bar {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid #203442;
+  border-radius: 8px;
+  background: #142c3c;
+  color: #fff;
+  box-shadow: 6px 6px 0 #e7e5dd;
+}
+
+.quiz-label {
+  display: block;
+  color: #c6d5d9;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.timer-value {
+  display: block;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.quiz-bar strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.progress-track {
+  height: 10px;
+  margin-top: 0.45rem;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #3b515e;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #7fc3b5;
+}
+
+/* Under one minute left: the bar turns rust so the warning is hard to miss. */
+.quiz-bar.is-low {
+  border-color: #a53818;
+  background: #a53818;
+}
+
+.quiz-bar.is-low .quiz-label {
+  color: #fbe3d9;
+}
+
+.quiz-bar.is-low .progress-track {
+  background: #7d2a12;
+}
+
+.quiz-bar.is-low .progress-fill {
+  background: #fff;
+}
+
+/* ---------- Question cards ---------- */
+.quiz-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.question {
+  min-width: 0;
+  margin: 0;
+  padding: 1.5rem;
+  border: 1px solid #cfd7d3;
+  border-radius: 6px;
+  background: #fffefa;
+}
+
+/* A float lets the legend sit inside the card like normal content. */
+.question legend {
+  float: left;
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.question legend + * {
+  clear: both;
+}
+
+.q-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.q-head .number {
+  margin-right: auto;
+}
+
+.q-type {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid #c5cec9;
+  border-radius: 4px;
+  background: #f0f2ed;
+  color: #53636c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.q-type.is-multi {
+  border-color: #22615b;
+  background: #e9efea;
+  color: #1b4f4a;
+}
+
+.q-text {
+  display: block;
+  color: #142c3c;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ---------- Answer controls ---------- */
+.choices {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid #c5cec9;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.choice:hover {
+  border-color: #142c3c;
+  background: #eeede5;
+}
+
+.choice input {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.2rem 0 0;
+  accent-color: #22615b;
+}
+
+/* The selected row gets a teal edge, so it is obvious without hunting for the dot. */
+.choice:has(input:checked) {
+  border-color: #22615b;
+  background: #e9efea;
+  box-shadow: inset 4px 0 0 #22615b;
+}
+
+.choice:has(input:focus-visible) {
+  outline: 3px solid #a53818;
+  outline-offset: 3px;
+}
+
+.choice-key {
+  flex: none;
+  min-width: 1.2rem;
+  color: #a53818;
+  font-family: Consolas, "Courier New", monospace;
+  font-weight: 700;
+}
+
+.choice-text {
+  flex: 1;
+}
+
+.blank-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #53636c;
+  font-size: 0.85rem;
+}
+
+input[type="text"] {
+  display: block;
+  width: min(100%, 22rem);
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #7b8c88;
+  border-radius: 5px;
+  background: #fff;
+  color: #142c3c;
+  font: inherit;
+}
+
+input[type="text"]::placeholder {
+  color: #7b8c88;
+}
+
+input[type="text"]:hover {
+  border-color: #142c3c;
+}
+
+input[type="text"]:focus {
+  border-color: #142c3c;
+  outline: 3px solid #a53818;
+  outline-offset: 2px;
+}
+
+/* ---------- Buttons (extends the site's .button) ---------- */
+button.button {
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.button:focus-visible {
+  outline: 3px solid #a53818;
+  outline-offset: 4px;
+}
+
+.button-secondary {
+  background: #fffefa;
+  color: #142c3c;
+  border-color: #142c3c;
+}
+
+.button-secondary:hover {
+  background: #142c3c;
+  color: #fff;
+}
+
+.button:disabled {
+  border-color: #c5cec9;
+  background: #e4e8e5;
+  color: #6d7c82;
+  cursor: not-allowed;
+}
+
+.quiz-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #cfd7d3;
+}
+
+.quiz-actions .action-note {
+  flex-basis: 100%;
+  margin: 0;
+  color: #53636c;
+  font-size: 0.85rem;
+}
+
+/* ---------- Results panel ---------- */
+.result-summary {
+  margin-bottom: 1.5rem;
+  padding: 1.75rem;
+  border: 1px solid #cfd7d3;
+  border-top: 8px solid #22615b;
+  border-radius: 6px;
+  background: #fffefa;
+}
+
+.result-summary.is-fail {
+  border-top-color: #a53818;
+}
+
+.result-summary .actions {
+  margin-top: 0;
+}
+
+.result-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: #22615b;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.badge.is-fail {
+  background: #a53818;
+}
+
+.score {
+  margin: 0;
+  color: #142c3c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.score small {
+  color: #53636c;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+
+.result-message {
+  margin: 0;
+  color: #203442;
+  font-size: 1.1rem;
+}
+
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1.5rem 0;
+  padding: 1.2rem 0;
+  border-top: 1px solid #cfd7d3;
+  border-bottom: 1px solid #cfd7d3;
+}
+
+.result-stats div {
+  padding: 0 1rem;
+  border-right: 1px solid #cfd7d3;
+}
+
+.result-stats div:first-child {
+  padding-left: 0;
+}
+
+.result-stats div:last-child {
+  border-right: 0;
+}
+
+.result-stats dt {
+  color: #53636c;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.result-stats dd {
+  margin: 0;
+  color: #142c3c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+}
+
+.chip-label {
+  margin-bottom: 0.6rem;
+  color: #53636c;
+  font-size: 0.85rem;
+}
+
+.score-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.score-chips li {
+  margin: 0;
+}
+
+.score-chips a {
+  display: block;
+  min-width: 4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #22615b;
+  border-radius: 4px;
+  background: #e9efea;
+  color: #1b4f4a;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.score-chips a.is-wrong {
+  border-color: #a53818;
+  background: #fbebe5;
+  color: #87371e;
+}
+
+.score-chips a:hover {
+  box-shadow: 0 0 0 2px #142c3c;
+}
+
+/* ---------- Per-question feedback after submitting ---------- */
+.question.is-correct {
+  border-left: 6px solid #22615b;
+}
+
+.question.is-incorrect {
+  border-left: 6px solid #a53818;
+}
+
+.q-status {
+  padding: 0.15rem 0.7rem;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.is-correct .q-status {
+  background: #22615b;
+}
+
+.is-incorrect .q-status {
+  background: #a53818;
+}
+
+/* The :has() copies are needed so these colors beat the "selected" teal style above. */
+.choice.is-right, .choice.is-right:has(input:checked) {
+  border-color: #22615b;
+  background: #e9efea;
+  box-shadow: inset 4px 0 0 #22615b;
+}
+
+.choice.is-wrong, .choice.is-wrong:has(input:checked) {
+  border-color: #a53818;
+  background: #fbebe5;
+  box-shadow: inset 4px 0 0 #a53818;
+}
+
+.choice.is-missed {
+  border: 1px dashed #22615b;
+  background: #fff;
+}
+
+.choice-tag {
+  flex: none;
+  align-self: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.is-right .choice-tag, .is-missed .choice-tag {
+  color: #1b4f4a;
+}
+
+.is-wrong .choice-tag {
+  color: #87371e;
+}
+
+.choice.is-locked {
+  cursor: default;
+}
+
+.choice.is-locked:hover {
+  border-color: #c5cec9;
+  background: #fff;
+}
+
+.choice.is-right:hover, .choice.is-right:has(input:checked):hover {
+  border-color: #22615b;
+  background: #e9efea;
+}
+
+.choice.is-wrong:hover, .choice.is-wrong:has(input:checked):hover {
+  border-color: #a53818;
+  background: #fbebe5;
+}
+
+input[type="text"].is-right {
+  border: 2px solid #22615b;
+  background: #e9efea;
+}
+
+input[type="text"].is-wrong {
+  border: 2px solid #a53818;
+  background: #fbebe5;
+}
+
+.feedback {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1.1rem;
+  border-left: 4px solid #22615b;
+  background: #e9efea;
+  font-size: 0.95rem;
+}
+
+.is-incorrect .feedback {
+  border-left-color: #a53818;
+  background: #fbebe5;
+}
+
+.feedback p {
+  margin: 0;
+}
+
+.feedback p + p {
+  margin-top: 0.3rem;
+}
+
+.feedback a {
+  font-weight: 700;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 760px) {
+  .quiz-facts {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .quiz-facts li, .quiz-facts li:first-child {
+    padding: 0;
+    border-right: 0;
+  }
+
+  .quiz-intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Compact one-row bar so it does not cover much of a small screen while sticky. */
+  .quiz-bar {
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .quiz-pass {
+    display: none;
+  }
+
+  .timer-value {
+    font-size: 1.5rem;
+  }
+
+  .result-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 0;
+  }
+
+  .result-stats div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .result-stats div:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .score {
+    font-size: 3rem;
+  }
+
+  .question {
+    padding: 1.1rem;
+  }
+}
