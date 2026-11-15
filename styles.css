@@ -101,7 +101,7 @@ figcaption {
   font-size: 0.85rem;
 }
 
-/* CLASS selectors style reusable parts, such as containers and buttons. */
+/* CLASS selectors style reusable parts, like containers and buttons. */
 .container {
   width: min(1100px, calc(100% - 3rem));
   margin: 0 auto;
