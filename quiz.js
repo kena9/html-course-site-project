@@ -1,16 +1,8 @@
-/* quiz.js
-   Runs the quiz on quiz.html: Start button, 10-minute timer, grading, results, and retake.
-
-   Each question in quiz.html keeps its own details in data- attributes:
-     data-type   = "fib" (fill in the blank), "mc" (one answer) or "multi" (select all)
-     data-answer = the correct answer ("CERN", "B", or "BCE")
-   That means this file does not need to change if a question's wording changes. */
-
 "use strict";
 
 /* ---------- Settings ---------- */
 const TIME_LIMIT = 10 * 60;  // seconds allowed (10 minutes)
-const PASS_MARK = 7;         // correct answers needed to pass (7 of 10 = 70%)
+const PASS_MARK = 7;         // correct answers to pass (7 of 10 = 70%)
 const WARNING_TIME = 60;     // the timer bar turns red under this many seconds
 
 /* ---------- Page elements ---------- */
@@ -30,8 +22,8 @@ const questions = document.querySelectorAll(".question");
 const total = questions.length;
 
 /* ---------- Quiz state ---------- */
-let startTime = 0;      // when the Start button was pressed (milliseconds)
-let timerId = null;     // the id of the running one-second timer
+let startTime = 0;      // when the Start button was pressed
+let timerId = null;     // the id of the running one second timer
 let quizRunning = false;
 
 /* ---------- Small helpers ---------- */
